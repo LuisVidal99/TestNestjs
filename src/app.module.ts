@@ -4,6 +4,7 @@ import { config } from './config/config';
 import { DatabaseConfg } from './config/database_config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { WorkerModule } from './worker/worker.module';
+import { Worker } from './worker/entities/worker.entity';
 
 
 @Module({
@@ -12,9 +13,14 @@ import { WorkerModule } from './worker/worker.module';
       isGlobal: true,
       load: [config]
     }),
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      useClass: DatabaseConfg
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      username: 'postgres',
+      password: 'cinco',
+      database: 'worker',
+      entities: [Worker],
+      synchronize: true,
+
     }),
     WorkerModule,
   ],
