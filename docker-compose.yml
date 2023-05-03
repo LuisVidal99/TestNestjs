@@ -29,8 +29,9 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: cinco
       POSTGRES_DB: worker
+      POSTGRES_HOST_AUTH_METHOD: trust
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
     networks:
       - mynetwork
 
