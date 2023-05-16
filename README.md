@@ -29,12 +29,15 @@
 
 ```bash
 $ pnpm install
-$ docker-compose up -d
+
 ```
 
 ## Running the app
 
 ```bash
+
+$ docker-compose up -d
+
 # development
 $ pnpm run start
 
